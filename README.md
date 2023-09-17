@@ -1,4 +1,3 @@
-
 # IoT Mastery
 
 This repository serves as a comprehensive guide and roadmap to help `me` master the Internet of Things (IoT).
