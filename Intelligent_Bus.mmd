@@ -1,0 +1,79 @@
+graph TD
+  subgraph "Azure"
+    subgraph "IoT Devices"
+      B1(Bus 1)
+      B2(Bus 2)
+      B3(Bus 3)
+      B4(Bus 4)
+    end
+
+    subgraph "Azure IoT Hub"
+      IoT_Hub[IoT Hub]
+    end
+
+    subgraph "Azure Functions"
+      Functions[Functions]
+    end
+
+    subgraph "Azure Cosmos DB"
+      Cosmos_DB[Cosmos DB]
+    end
+
+    subgraph "Azure App Service"
+      Bus_Stop_Board[Bus Stop Information Boards]
+      Passenger_App[Passenger Mobile App/Website]
+    end
+
+    subgraph "Azure SignalR Service"
+      SignalR[SignalR Service]
+    end
+
+    subgraph "Azure Stream Analytics"
+      Stream_Analytics[Stream Analytics]
+    end
+
+    subgraph "Azure Logic Apps"
+      Logic_Apps[Logic Apps]
+    end
+
+    subgraph "Azure Maps"
+      Azure_Maps[Azure Maps]
+    end
+
+    subgraph "Azure Monitoring & Security"
+      Azure_Monitor[Azure Monitor]
+      Azure_Security[Azure Security Center]
+    end
+
+    subgraph "Azure DevOps"
+      DevOps[Azure DevOps]
+    end
+  end
+
+  B1 -->|Real-time data| IoT_Hub
+  B2 -->|Real-time data| IoT_Hub
+  B3 -->|Real-time data| IoT_Hub
+  B4 -->|Real-time data| IoT_Hub
+
+  IoT_Hub -->|Real-time data| Functions
+  Functions -->|Processed data| Cosmos_DB
+  Functions -->|Real-time updates| SignalR
+  Stream_Analytics -->|Processed data| Logic_Apps
+
+  SignalR -->|Real-time updates| Bus_Stop_Board
+  SignalR -->|Real-time updates| Passenger_App
+
+  Logic_Apps -->|Integration| External_Services
+
+  Cosmos_DB -->|Data storage| Azure_Maps
+  Cosmos_DB -->|Data storage| Stream_Analytics
+  Cosmos_DB -->|Data storage| Logic_Apps
+
+  Azure_Monitor -->|Monitoring| Azure_Security
+  DevOps -->|Development & Deployment| Bus_Stop_Board
+  DevOps -->|Development & Deployment| Passenger_App
+
+  style Bus1 fill:#f9f,stroke:#333,stroke-width:2px
+  style Bus2 fill:#f9f,stroke:#333,stroke-width:2px
+  style Bus3 fill:#f9f,stroke:#333,stroke-width:2px
+  style Bus4 fill:#f9f,stroke:#333,stroke-width:2px
