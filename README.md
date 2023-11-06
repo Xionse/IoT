@@ -84,3 +84,4 @@ The Internet of Things (IoT) is a dynamic and rapidly evolving field with the po
 ---
 
 This repository is designed to be `my` companion throughout your IoT mastery journey. 
+> To be implemented in Rust
